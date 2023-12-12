@@ -1,0 +1,10 @@
+[{
+    "name" : "Protonmail",
+    "email" : "danielbolster@protonmail.com",
+    "exclude" : []
+},
+{
+    "name" : "Outlook",
+    "email" : "danbolster@outlook.com",
+    "exclude" : []
+}]
