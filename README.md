@@ -79,9 +79,10 @@ To use, just clone.
 If you're going the gmail route, it'll ask for your credentials on running
 
 If you're going the smtp relay route, you can set environment variables for your domain and API token:
-`export API_TOKEN=<API TOKEN>`
-`export DOMAIN=DOMAIN` ex. `the-north-pole.lol`
-
+```
+export API_TOKEN=<API TOKEN>
+export DOMAIN=DOMAIN` ex. `the-north-pole.lol
+```
 If not set, you'll be prompted for them as well
 
 ### Prerequisites
