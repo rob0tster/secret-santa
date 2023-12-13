@@ -59,7 +59,6 @@ def email_handling(pair):
     
     # creates SMTP session
     s = smtplib.SMTP('smtp.gmail.com', 587)
-    # start TLS for security
     s.starttls()
 
     # Authentication
@@ -88,6 +87,7 @@ def email_handling(pair):
 
     # terminating the session
     s.quit()
+
 
 def main():
     json_data = readInParticipants()

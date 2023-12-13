@@ -9,7 +9,7 @@ import sys
 
 # handle input of the Mailgun API Token and Custom domain name
 api_token = os.environ['API_TOKEN']
-domain = os.environ["domain"]
+domain = os.environ["DOMAIN"]
 
 if api_token == None:
     api_token = sys.argv[0]
