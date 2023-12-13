@@ -43,6 +43,7 @@ Gmail lets you use their SMTP server to send emails from your own email for free
 - there may be some account permissions you need to allow
 
 Fair warning if you want to customize the message further: SMTP formatting is pretty gross, but I wrangled it to send the following
+
 ![Gmail Message](/images/gmail.png)
 
 If you want to see how that part works, check out [SMTP python stuff](santa_gmail.py#55)
