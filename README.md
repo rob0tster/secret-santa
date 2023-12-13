@@ -24,7 +24,7 @@ Both scripts have been included here, and I'll walk through how both work.
 
 The way the core functionality works for both scripts is:
 1. Read in JSON data of each participant's name & email
-- I also include an 'exclude' list, so that if descired people in relationships won't get each other (since they're probably already getting each other gifts)
+- I also include an 'exclude' list, so that if desired people in relationships won't get each other (since they're probably already getting each other gifts)
 
 2. Make a list of potential pairings
 
@@ -32,17 +32,17 @@ The way the core functionality works for both scripts is:
 - if not, try again
 - there's definitely a more clever way to do this, but the problem space is small enough we can just brute force a valid pairing
 
-4. Iterate through each pairing an email the 'gifter' who their 'giftee' is
+4. Iterate through each pairing and emailing the 'gifter' who their 'giftee' is
 
 ![script main function](/images/core.png)
 
 
 ## Gmail
+
 Gmail lets you use their SMTP server to send emails from your own email for free.
 - all you have to do is supply your creds
-- there may be some account permissions you need to allow
 
-Fair warning if you want to customize the message further: SMTP formatting is pretty gross, but I wrangled it to send the following
+Fair warning if you want to customize the message further: SMTP formatting is pretty gross, but I wrangled it to send the following:
 
 ![Gmail Message](/images/gmail.png)
 
@@ -50,27 +50,31 @@ If you want to see how that part works, check out [SMTP python stuff](santa_gmai
 
 Pretty bare bones, but again, it's **free**
 
-There's a few different ways to set up your account to allow SMTP authentication. I used something called an app password, which you can use as the SMTP password (the username being your gmail address). There's some other API based options I saw but haven't looke dinto
+There's a few different ways to set up your account to allow SMTP authentication. 
+- I used something called an app password, which you can use as the SMTP password
+- the username being your gmail address.
+- There's some other API based options I saw but haven't looked into
 
 ![app password](/images/app_password.png)
 
 ## SMTP Relay
 Ok so now onto the prettier one.
 
-SMTP relays are a service that will forward your message along via their SMTP servers for a free.
+SMTP relays are a service that will forward your message along via their SMTP servers for a fee.
 - [Mailgun](https://www.mailgun.com/) is a great SMTP relay service that supports custom domains
-    - they also have a killer 30 day free trial for 5,000 emails 
-    - (**WARNING** does require cred card details)
+    - they also have a killer 30 day free trial for like 5,000 emails 
+    - **WARNING** does require cred card details
+        - set that cancel reminder 
 
 If you want to go this route you'll probably also want to grab a cheap domain
 - I bought the-north-pole.lol for $1.98
-- You can also use the built in domains, but they're not nearly as fun sounding
+- You can also use the built in domains, but they're not nearly as fun sounding, and why else are you using the SMTP relay?
 
 You'll need to add some SPF and DKIM records inside of your domain's settings
 - you'll do this from your domain registrar's domain management page
+- the documentation walks you through this really well
 
 Mailgun has some fantastic documentation for [sending via API](https://documentation.mailgun.com/en/latest/user_manual.html#sending-via-api) with support for multiple languages
-
 - They also support base SMTP if you want to do it that way too
 
 ## Getting Started
@@ -83,10 +87,10 @@ If you're going the smtp relay route, you can set environment variables for your
 export API_TOKEN=<API TOKEN>
 export DOMAIN=DOMAIN` ex. `the-north-pole.lol
 ```
-If not set, you'll be prompted for them as well
+- If not set, you'll be prompted for them as well
 
 ### Prerequisites
-You'll need to have gmail SMTP or Mailgun/a domain set up
+You'll need to have gmail SMTP or Mailgun/a domain set up as discussed above
 
 ### Installation
 
